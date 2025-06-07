@@ -13,5 +13,8 @@
     sublime-merge
     mattermost-desktop
     nixfmt-tree
+    copyq
+    dconf-editor
+    dconf2nix
   ];
 }
