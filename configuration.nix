@@ -6,6 +6,7 @@
     ./hardware-configuration.nix
     ./dconf.nix
     ./packages.nix
+    ./scripts.nix
   ];
 
   nix.settings.experimental-features = [

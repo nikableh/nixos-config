@@ -1,13 +1,13 @@
-{ pkgs, ...} : {
+{ pkgs, ...} :
 pkgs.writeShellApplication {
   name = "cfg-commit"; 
 
-  runtimeInputs = [
+  runtimeInputs = with pkgs; [
     git
     nixfmt-tree
   ];
 
-  test = ''
+  text = ''
     pushd /etc/nixos
     
     echo
@@ -32,4 +32,3 @@ pkgs.writeShellApplication {
     popd
   '';
 }
-

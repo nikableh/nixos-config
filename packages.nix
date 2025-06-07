@@ -20,6 +20,8 @@
     vlc
     xorg.xev
     ripgrep
-    cowsay
+    evtest
+    bat
+    tree
   ];
 }
