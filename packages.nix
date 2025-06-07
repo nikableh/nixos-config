@@ -1,4 +1,5 @@
-{ pkgs, ...}: {
+{ pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     neovim
     file
@@ -11,6 +12,6 @@
     gnome-tweaks
     sublime-merge
     mattermost-desktop
-    nixfmt-rfc-style
+    nixfmt-tree
   ];
 }

@@ -8,7 +8,7 @@
     ./packages.nix
   ];
 
-  nix.settings.experimental-features = [ 
+  nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
@@ -51,7 +51,7 @@
     totem
     geary
   ];
-  
+
   services.xserver.xkb = {
     layout = "us,ru";
     variant = "";
@@ -74,7 +74,10 @@
   users.users.synalice = {
     isNormalUser = true;
     description = "synalice";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
   };
 
   nixpkgs.config.allowUnfree = true;
