@@ -2,6 +2,7 @@
 
 pushd /etc/nixos
 
+treefmt
 git add -A
 git commit -m "Backup config"
 git push
