@@ -16,5 +16,10 @@
     copyq
     dconf-editor
     dconf2nix
+    qbittorrent
+    vlc
+    xorg.xev
+    ripgrep
+    cowsay
   ];
 }
