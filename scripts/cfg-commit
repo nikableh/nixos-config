@@ -7,11 +7,7 @@ echo "Formatting files:"
 echo "================="
 treefmt
 
-echo
-echo "Running 'git add -A':"
-echo "====================="
 git add -A
-
 
 echo
 echo "Running 'git commit':"
