@@ -79,20 +79,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-#  environment.systemPackages = with pkgs; [
-#    neovim
-#    file
-#    pciutils
-#    git
-#    fastfetch
-#    wl-clipboard
-#    google-chrome
-#    telegram-desktop
-#    gnome-tweaks
-#    sublime-merge
-#    mattermost-desktop
-#  ];
-
   services.openssh = {
     enable = true;
     settings = {

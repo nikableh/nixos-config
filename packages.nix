@@ -11,5 +11,6 @@
     gnome-tweaks
     sublime-merge
     mattermost-desktop
+    nixfmt-rfc-style
   ];
 }
