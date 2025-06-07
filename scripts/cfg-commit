@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+pushd /etc/nixos
+
+git add -A
+git commit -m "Backup config"
+git push
+
+popd
