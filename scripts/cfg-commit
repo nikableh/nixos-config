@@ -2,9 +2,26 @@
 
 pushd /etc/nixos
 
+echo
+echo "Formatting files:"
+echo "================="
 treefmt
+
+echo
+echo "Running 'git add -A':"
+echo "====================="
 git add -A
+
+
+echo
+echo "Running 'git commit':"
+echo "====================="
 git commit -m "Backup config"
+
+
+echo
+echo "Running 'git push':"
+echo "==================="
 git push
 
 popd
