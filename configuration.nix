@@ -5,6 +5,7 @@
     <nixos-hardware/xiaomi/redmibook/16-pro-2024>
     ./hardware-configuration.nix
     ./dconf.nix
+    ./packages.nix
   ];
 
   nix.settings.experimental-features = [ 
@@ -74,23 +75,23 @@
     isNormalUser = true;
     description = "synalice";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      google-chrome
-      telegram-desktop
-      gnome-tweaks
-      sublime-merge
-      mattermost-desktop
-    ];
   };
 
-  environment.systemPackages = with pkgs; [
-    neovim
-    file
-    pciutils
-    git
-    fastfetch
-    wl-clipboard
-  ];
+  nixpkgs.config.allowUnfree = true;
+
+#  environment.systemPackages = with pkgs; [
+#    neovim
+#    file
+#    pciutils
+#    git
+#    fastfetch
+#    wl-clipboard
+#    google-chrome
+#    telegram-desktop
+#    gnome-tweaks
+#    sublime-merge
+#    mattermost-desktop
+#  ];
 
   services.openssh = {
     enable = true;
