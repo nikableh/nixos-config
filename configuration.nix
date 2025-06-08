@@ -83,6 +83,10 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  environment.shellAliases = {
+    rebuild = "sudo nixos-rebuild switch";
+  };
+
   services.openssh = {
     enable = true;
     settings = {
