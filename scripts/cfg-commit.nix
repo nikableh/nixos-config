@@ -10,25 +10,25 @@ pkgs.writeShellApplication {
   text = ''
     pushd /etc/nixos
 
-    echo "================="
-    echo "Formatting files:"
-    echo "================="
+    printf "\n=================\n"
+    echo     "Formatting files:"
+    printf "\n=================\n"
     ${pkgs.nixfmt-tree}/bin/treefmt
 
     ${pkgs.git}/bin/git add -A
 
-    echo "====================="
-    echo "Running 'git commit':"
-    echo "====================="
+    printf "\n=====================\n"
+    echo     "Running 'git commit':"
+    printf "\n=====================\n"
     ${pkgs.git}/bin/git commit -m "Backup config"
 
 
-    echo "==================="
-    echo "Running 'git push':"
-    echo "==================="
+    printf "\n===================\n"
+    echo     "Running 'git push':"
+    printf "\n===================\n"
     ${pkgs.git}/bin/git push
 
-    echo
+    printf
     popd
   '';
 }
