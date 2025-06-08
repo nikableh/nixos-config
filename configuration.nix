@@ -14,6 +14,7 @@
     "flakes"
   ];
 
+  xdg.portal.enable = true;
   hardware.graphics.enable = true;
 
   boot.loader.systemd-boot.enable = true;
