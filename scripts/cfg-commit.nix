@@ -10,6 +10,8 @@ pkgs.writeShellApplication {
   text = ''
     pushd /etc/nixos
 
+    ${pkgs.git}/bin/git add -A
+
     printf "\n================\n"
     printf "Formatting files\n"
     printf "================\n\n"
