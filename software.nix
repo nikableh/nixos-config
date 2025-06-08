@@ -1,7 +1,8 @@
 { pkgs, ... }:
 {
   imports = [
-    ./obs-studio.nix
+    ./software/obs-studio.nix
+    ./software/docker.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -22,10 +23,12 @@
     dconf2nix
     qbittorrent
     vlc
-    xorg.xev
     ripgrep
     evtest
     bat
     tree
+    bustle
+    wev
+    gimp
   ];
 }
