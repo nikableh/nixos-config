@@ -14,6 +14,8 @@
     "flakes"
   ];
 
+  hardware.graphics.enable = true;
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -97,6 +99,10 @@
 
   environment.shellAliases = {
     rebuild = "sudo nixos-rebuild switch";
+  };
+
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
   };
 
   services.openssh = {

@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
-  programs.obs-studio.enableVirtualCamera = true;
+  imports = [
+    ./obs-studio.nix
+  ];
 
   environment.systemPackages = with pkgs; [
     neovim
@@ -25,6 +27,5 @@
     evtest
     bat
     tree
-    obs-studio
   ];
 }
