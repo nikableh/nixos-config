@@ -5,7 +5,7 @@
     <nixos-hardware/xiaomi/redmibook/16-pro-2024>
     ./hardware-configuration.nix
     ./dconf.nix
-    ./packages.nix
+    ./software.nix
     ./scripts.nix
   ];
 
