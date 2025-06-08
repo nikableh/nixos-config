@@ -18,6 +18,18 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  system.autoUpgrade = {
+    enable = true;
+    dates = "weekly";
+  };
+
+  nix.settings.auto-optimise-store = true;
+  nix.gc = {
+    automatic = true;
+    dates = "daily";
+    options = "--detele-older-than 10d";
+  };
+
   networking.hostName = "semk";
   networking.networkmanager.enable = true;
 
