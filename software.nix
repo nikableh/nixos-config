@@ -3,7 +3,10 @@
   imports = [
     ./software/obs-studio.nix
     ./software/docker.nix
+    ./software/keyd.nix
   ];
+
+  programs.direnv.enable = true;
 
   environment.systemPackages = with pkgs; [
     neovim
@@ -30,5 +33,6 @@
     bustle
     wev
     gimp
+    vscode
   ];
 }
