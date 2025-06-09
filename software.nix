@@ -6,10 +6,28 @@
     ./software/keyd.nix
   ];
 
+  programs.nano.enable = false;
+  programs.neovim.enable = true;
+
   programs.direnv.enable = true;
 
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
+
+  programs.git = {
+    enable = true;
+    lfs.enable = true;
+    config = {
+      init.defaultBranch = "main";
+      gpg.format = "openpgp";
+      commit.gpgsign = true;
+      tag.gpgSign = true;
+    };
+  };
+
   environment.systemPackages = with pkgs; [
-    neovim
     file
     pciutils
     git
@@ -35,6 +53,8 @@
     gimp
     vscode
     openvpn
-    findutils
+    nixfmt-rfc-style
+    nil
+    sensible-utils
   ];
 }

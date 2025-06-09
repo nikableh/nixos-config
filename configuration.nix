@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -17,6 +17,7 @@
 
   environment.shellAliases = {
     rebuild = "sudo nixos-rebuild switch";
+    merge = "sublime_merge";
   };
 
   xdg.portal.enable = true;
