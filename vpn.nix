@@ -7,7 +7,7 @@
 
   services.openvpn.servers = {
     omp = {
-      config = ''config /home/synalice/Documents/omp/n.krasnov.ovpn '';
+      config = ''config /root/n.krasnov.ovpn '';
       updateResolvConf = true;
       autoStart = false;
     };
