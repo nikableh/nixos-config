@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs; [ keyd ];
   services.keyd = {
-    enable = false;
+    enable = true;
     keyboards = {
       default = {
         ids = [ "*" ];
