@@ -34,5 +34,7 @@
     wev
     gimp
     vscode
+    openvpn
+    findutils
   ];
 }

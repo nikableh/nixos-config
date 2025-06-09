@@ -7,12 +7,17 @@
     ./dconf.nix
     ./software.nix
     ./scripts.nix
+    ./vpn.nix
   ];
 
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
+
+  environment.shellAliases = {
+    rebuild = "sudo nixos-rebuild switch";
+  };
 
   xdg.portal.enable = true;
   hardware.graphics.enable = true;
@@ -97,10 +102,6 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-
-  environment.shellAliases = {
-    rebuild = "sudo nixos-rebuild switch";
-  };
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
