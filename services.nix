@@ -1,5 +1,7 @@
 { ... }:
 {
+  services.acpid.enable = true;
+
   systemd.services.enableXiaomiButton = {
     script = ''
       setkeycodes e072 193

@@ -7,9 +7,10 @@
   ];
 
   programs.nano.enable = false;
-  programs.neovim.enable = true;
 
+  programs.neovim.enable = true;
   programs.direnv.enable = true;
+  programs.steam.enable = true;
 
   programs.gnupg.agent = {
     enable = true;
