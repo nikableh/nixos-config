@@ -11,6 +11,7 @@
   programs.neovim.enable = true;
   programs.direnv.enable = true;
   programs.steam.enable = true;
+  programs.thunderbird.enable = true;
 
   programs.gnupg.agent = {
     enable = true;
@@ -31,7 +32,6 @@
   environment.systemPackages = with pkgs; [
     file
     pciutils
-    git
     fastfetch
     wl-clipboard
     google-chrome
