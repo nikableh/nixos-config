@@ -57,5 +57,7 @@
     nixfmt-rfc-style
     nil
     sensible-utils
+    libreoffice
+    shotcut
   ];
 }
