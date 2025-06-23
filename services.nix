@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  services.logind.lidSwitch = "lock";
+
   services.acpid.enable = true;
 
   systemd.services.enableXiaomiButton = {
