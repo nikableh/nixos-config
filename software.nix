@@ -59,5 +59,6 @@
     sensible-utils
     libreoffice
     shotcut
+    gucharmap
   ];
 }
