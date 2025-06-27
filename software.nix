@@ -26,6 +26,7 @@
       gpg.format = "openpgp";
       commit.gpgsign = true;
       tag.gpgSign = true;
+      core.editor = "code";
     };
   };
 
