@@ -1,5 +1,4 @@
-{ lib, ... }:
-with lib.hm.gvariant;
+{ ... }:
 {
   programs.dconf = {
     enable = true;
@@ -21,6 +20,10 @@ with lib.hm.gvariant;
             binding = "<Alt>v";
             command = "copyq toggle";
             name = "Toggle CopyQ";
+          };
+
+          "org/gnome/desktop/peripherals/touchpad" = {
+            disable-while-typing = true;
           };
         };
       }

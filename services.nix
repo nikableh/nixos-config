@@ -50,7 +50,10 @@
     pulse.enable = true;
   };
 
-  services.libinput.enable = true;
+  services.libinput = {
+    enable = true;
+    touchpad.disableWhileTyping = true;
+  };
 
   users.users.synalice = {
     isNormalUser = true;
