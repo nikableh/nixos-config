@@ -38,7 +38,7 @@
     google-chrome
     telegram-desktop
     gnome-tweaks
-    sublime-merge-dev
+    sublime-merge
     mattermost-desktop
     nixfmt-tree
     copyq
