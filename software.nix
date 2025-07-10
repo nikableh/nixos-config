@@ -11,7 +11,10 @@
   programs.neovim.enable = true;
   programs.direnv.enable = true;
   programs.steam.enable = true;
-  programs.thunderbird.enable = true;
+  programs.thunderbird = {
+    enable = true;
+    package = pkgs.thunderbird-esr;
+  };
 
   programs.gnupg.agent = {
     enable = true;
@@ -38,7 +41,7 @@
     google-chrome
     telegram-desktop
     gnome-tweaks
-    sublime-merge
+    unstable.sublime-merge-dev
     mattermost-desktop
     nixfmt-tree
     copyq

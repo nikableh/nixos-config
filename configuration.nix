@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   imports = [
@@ -57,7 +57,16 @@
     LC_TIME = "ru_RU.UTF-8";
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    packageOverrides = pkgs: {
+      # nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
+      # nix-channel --update
+      unstable = import <nixos-unstable> {
+        config = config.nixpkgs.config;
+      };
+    };
+  };
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
