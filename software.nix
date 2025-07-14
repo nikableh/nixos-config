@@ -64,5 +64,6 @@
     libreoffice
     shotcut
     gucharmap
+    obsidian
   ];
 }
