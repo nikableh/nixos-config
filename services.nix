@@ -73,4 +73,11 @@
       AllowUsers = [ "synalice" ];
     };
   };
+
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+    user = "synalice";
+    dataDir = "/home/synalice";
+  };
 }
