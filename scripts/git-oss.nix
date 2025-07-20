@@ -7,6 +7,6 @@ pkgs.writeShellApplication {
   text = ''
     git config user.name "Nikita Krasnov"
     git config user.email "nikita.nikita.krasnov@gmail.com"
-    git config user.signingkey 97194DB3A4C77F31
+    git config user.signingkey E00E7304C17E7786
   '';
 }
