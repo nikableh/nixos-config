@@ -29,7 +29,6 @@
       gpg.format = "openpgp";
       commit.gpgsign = true;
       tag.gpgSign = true;
-      push.gpgSign = true;
       core.editor = "nvim";
     };
   };
@@ -66,7 +65,7 @@
     shotcut
     gucharmap
     obsidian
-    # For flashing Aurora OS via fastboot
-    android-tools
+    android-tools # For flashing Aurora OS via fastboot
+    android-studio
   ];
 }
