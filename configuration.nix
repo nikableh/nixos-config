@@ -72,5 +72,7 @@
     NIXOS_OZONE_WL = "1";
   };
 
+  virtualisation.libvirtd.enable = true;
+
   system.stateVersion = "25.05";
 }

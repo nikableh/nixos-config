@@ -4,6 +4,7 @@
     (callPackage ./scripts/cfg-commit.nix { })
     (callPackage ./scripts/cfg-open.nix { })
     (callPackage ./scripts/git-corp.nix { })
+    (callPackage ./scripts/git-nika.nix { })
     (callPackage ./scripts/git-oss.nix { })
   ];
 }
