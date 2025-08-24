@@ -80,4 +80,6 @@
     user = "synalice";
     dataDir = "/home/synalice";
   };
+
+  services.flatpak.enable = true;
 }

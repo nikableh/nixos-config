@@ -68,5 +68,6 @@
     android-tools # For flashing Aurora OS via fastboot
     android-studio
     inkscape
+    godot
   ];
 }
