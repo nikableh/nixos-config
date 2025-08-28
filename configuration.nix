@@ -42,6 +42,10 @@
 
   networking.hostName = "semk";
   networking.networkmanager.enable = true;
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 3000 ]; # for Nuxt development server
+  };
 
   time.timeZone = "Europe/Moscow";
   i18n.defaultLocale = "en_US.UTF-8";
