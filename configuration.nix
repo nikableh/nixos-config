@@ -19,6 +19,7 @@
   environment.shellAliases = {
     cfg-rebuild = "sudo nixos-rebuild switch";
     merge = "sublime_merge";
+    psdk = "/home/synalice/AuroraPlatformSDK/sdks/aurora_psdk/sdk-chroot";
   };
 
   xdg.portal.enable = true;

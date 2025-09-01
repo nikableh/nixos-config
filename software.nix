@@ -69,5 +69,6 @@
     android-studio
     inkscape
     godot
+    firefox
   ];
 }
