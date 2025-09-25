@@ -34,14 +34,15 @@
   };
 
   environment.systemPackages = with pkgs; [
+    unstable.telegram-desktop
+    unstable.sublime-merge-dev
+
     file
     pciutils
     fastfetch
     wl-clipboard
     google-chrome
-    telegram-desktop
     gnome-tweaks
-    unstable.sublime-merge-dev
     mattermost-desktop
     nixfmt-tree
     copyq
@@ -70,5 +71,6 @@
     inkscape
     godot
     firefox
+    blender
   ];
 }
