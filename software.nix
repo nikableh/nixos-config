@@ -72,5 +72,7 @@
     godot
     firefox
     blender
+    pdfarranger
+    gnome-boxes
   ];
 }
