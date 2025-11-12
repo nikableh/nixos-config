@@ -70,6 +70,9 @@
       unstable = import <nixos-unstable> {
         config = config.nixpkgs.config;
       };
+      nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/main.tar.gz") {
+        inherit pkgs;
+      };
     };
   };
 
