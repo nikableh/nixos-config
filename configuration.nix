@@ -9,6 +9,7 @@
     ./scripts.nix
     ./services.nix
     ./vpn.nix
+    ./printers
   ];
 
   nix.settings.experimental-features = [

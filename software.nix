@@ -76,5 +76,8 @@
     gnome-boxes
     glab
     prismlauncher
+    liberation_ttf
+    vista-fonts
+    meld
   ];
 }

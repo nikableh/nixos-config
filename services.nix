@@ -39,8 +39,6 @@
     options = "caps:escape";
   };
 
-  services.printing.enable = true;
-
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -61,6 +59,8 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "kvm"
+      "render"
     ];
   };
 
