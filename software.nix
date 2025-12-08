@@ -30,6 +30,7 @@
       commit.gpgsign = true;
       tag.gpgSign = true;
       core.editor = "nvim";
+      diff.tool = "meld";
     };
   };
 
