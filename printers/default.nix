@@ -10,7 +10,7 @@
       pkgs.cups-kyocera-3500-4500
       pkgs.cups-kyocera
       pkgs.epson-escpr
-      # (pkgs.callPackage ./Kyocera_CS_2551ci/Kyocera_CS_2551ci.nix {})
+      # (pkgs.callPackage ./Kyocera_CS_2551ci {})
     ];
   };
 

@@ -8,7 +8,6 @@
     ./software.nix
     ./scripts.nix
     ./services.nix
-    ./vpn.nix
     ./printers
   ];
 
