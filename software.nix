@@ -35,7 +35,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    unstable.telegram-desktop
     unstable.sublime-merge-dev
 
     file
