@@ -80,5 +80,6 @@
     liberation_ttf
     vista-fonts
     meld
+    ayugram-desktop
   ];
 }
