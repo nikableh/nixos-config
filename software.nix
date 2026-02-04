@@ -6,6 +6,8 @@
     ./software/keyd.nix
   ];
 
+  programs.adb.enable = true;
+
   programs.nano.enable = false;
 
   programs.neovim.enable = true;
