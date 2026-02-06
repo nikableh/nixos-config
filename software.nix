@@ -82,5 +82,6 @@
     vista-fonts
     meld
     ayugram-desktop
+    icon-library
   ];
 }
