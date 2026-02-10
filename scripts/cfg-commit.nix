@@ -30,7 +30,6 @@ pkgs.writeShellApplication {
     printf "==================\n\n"
     git push
 
-    echo
     popd
   '';
 }
