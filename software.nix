@@ -38,6 +38,7 @@
 
   environment.systemPackages = with pkgs; [
     unstable.sublime-merge-dev
+    unstable.android-studio
 
     file
     pciutils
@@ -69,7 +70,6 @@
     gucharmap
     obsidian
     android-tools # For flashing Aurora OS via fastboot
-    android-studio
     inkscape
     godotPackages_4_5.godot
     firefox
@@ -83,5 +83,8 @@
     meld
     ayugram-desktop
     icon-library
+    typst
+    typstyle
+    tinymist
   ];
 }

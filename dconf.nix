@@ -25,6 +25,10 @@
           "org/gnome/desktop/peripherals/touchpad" = {
             disable-while-typing = true;
           };
+
+          "org.gnome.settings-daemon.plugins.housekeeping" = {
+            donation-reminder-enabled = false;
+          };
         };
       }
     ];
