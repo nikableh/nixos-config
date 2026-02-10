@@ -29,11 +29,6 @@
           "org.gnome.settings-daemon.plugins.housekeeping" = {
             donation-reminder-enabled = false;
           };
-
-          "org.gnome.desktop.wm.keybindings" = {
-            switch-input-source = [ "<Control>space" ];
-            switch-input-source-backward = lib.gvariant.mkEmptyArray (lib.gvariant.type.string);
-          };
         };
       }
     ];
