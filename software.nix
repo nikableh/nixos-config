@@ -39,6 +39,8 @@
   environment.systemPackages = with pkgs; [
     unstable.sublime-merge-dev
     unstable.android-studio
+    unstable.windsurf
+    unstable.shotcut
 
     file
     pciutils
@@ -66,7 +68,6 @@
     nil
     sensible-utils
     libreoffice
-    shotcut
     gucharmap
     obsidian
     android-tools # For flashing Aurora OS via fastboot
@@ -86,5 +87,7 @@
     typst
     typstyle
     tinymist
+    ffmpeg
+    slack
   ];
 }

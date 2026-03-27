@@ -48,7 +48,7 @@
     allowedTCPPorts = [ 3000 ]; # for Nuxt development server
   };
 
-  time.timeZone = "Europe/Moscow";
+  time.timeZone = "Europe/Belgrade";
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "ru_RU.UTF-8";
