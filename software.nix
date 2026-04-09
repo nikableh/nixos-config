@@ -37,12 +37,17 @@
     unstable.android-studio
     unstable.windsurf
     unstable.shotcut
+    unstable.claude-code
+    unstable.slack
+    unstable.discord
+    unstable.google-chrome
+    unstable.ayugram-desktop
+    unstable.vscode
 
     file
     pciutils
     fastfetch
     wl-clipboard
-    google-chrome
     gnome-tweaks
     nixfmt-tree
     copyq
@@ -57,7 +62,6 @@
     bustle
     wev
     gimp
-    vscode
     openvpn
     nixfmt-rfc-style
     nil
@@ -76,15 +80,11 @@
     liberation_ttf
     vista-fonts
     meld
-    ayugram-desktop
     icon-library
     typst
     typstyle
     tinymist
     ffmpeg
-    slack
-    discord
     zulu25
-    claude-code
   ];
 }
