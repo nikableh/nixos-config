@@ -28,7 +28,6 @@
 
   environment = {
     shellAliases = {
-      cfg-rebuild = "sudo nixos-rebuild switch";
       merge = "sublime_merge";
     };
 
