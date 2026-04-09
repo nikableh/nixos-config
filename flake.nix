@@ -21,10 +21,12 @@
       nixpkgs,
       nixpkgs-unstable,
       nixos-hardware,
+      home-manager,
       ...
     }@inputs:
     {
       nixosConfigurations.semk = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
           {
@@ -37,8 +39,9 @@
               })
             ];
           }
-          ./configuration.nix
+          ./system
           nixos-hardware.nixosModules.xiaomi-redmibook-16-pro-2024
+          home-manager.nixosModules.home-manager
         ];
       };
     };
