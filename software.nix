@@ -13,10 +13,6 @@
   programs.neovim.enable = true;
   programs.direnv.enable = true;
   programs.steam.enable = true;
-  programs.thunderbird = {
-    enable = true;
-    package = pkgs.thunderbird-esr;
-  };
 
   programs.gnupg.agent = {
     enable = true;
@@ -48,7 +44,6 @@
     wl-clipboard
     google-chrome
     gnome-tweaks
-    mattermost-desktop
     nixfmt-tree
     copyq
     dconf-editor
@@ -70,7 +65,6 @@
     libreoffice
     gucharmap
     obsidian
-    android-tools # For flashing Aurora OS via fastboot
     inkscape
     godotPackages_4_5.godot
     firefox

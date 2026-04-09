@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ ... }:
 {
   programs.dconf = {
     enable = true;

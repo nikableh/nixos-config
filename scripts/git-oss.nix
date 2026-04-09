@@ -5,8 +5,8 @@ pkgs.writeShellApplication {
   runtimeInputs = with pkgs; [ git ];
 
   text = ''
-    git config user.name "Nikita Krasnov"
-    git config user.email "nikita.nikita.krasnov@gmail.com"
-    git config user.signingkey E00E7304C17E7786
+    git config user.name "Nika Krasnova"
+    git config user.email "nika@nikableh.moe"
+    git config user.signingkey 90AB07612815096E
   '';
 }
