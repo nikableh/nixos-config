@@ -89,5 +89,8 @@
     tinymist
     ffmpeg
     slack
+    discord
+    zulu25
+    claude-code
   ];
 }
