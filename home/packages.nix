@@ -1,0 +1,57 @@
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    unstable.sublime-merge-dev
+    unstable.android-studio
+    unstable.windsurf
+    unstable.shotcut
+    unstable.claude-code
+    unstable.slack
+    unstable.discord
+    unstable.google-chrome
+    unstable.ayugram-desktop
+    unstable.vscode
+
+    file
+    pciutils
+    fastfetch
+    wl-clipboard
+    gnome-tweaks
+    nixfmt-tree
+    dconf-editor
+    dconf2nix
+    qbittorrent
+    vlc
+    ripgrep
+    evtest
+    bat
+    tree
+    bustle
+    wev
+    gimp
+    openvpn
+    nixfmt-rfc-style
+    nil
+    sensible-utils
+    libreoffice
+    gucharmap
+    obsidian
+    inkscape
+    godotPackages_4_5.godot
+    firefox
+    blender
+    pdfarranger
+    gnome-boxes
+    glab
+    prismlauncher
+    liberation_ttf
+    vista-fonts
+    meld
+    icon-library
+    typst
+    typstyle
+    tinymist
+    ffmpeg
+    zulu25
+  ];
+}

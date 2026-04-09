@@ -1,5 +1,5 @@
 { ... }:
 {
   virtualisation.docker.enable = true;
-  users.users.synalice.extraGroups = [ "docker" ];
+  users.users.nikableh.extraGroups = [ "docker" ];
 }

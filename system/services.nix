@@ -71,15 +71,11 @@
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
-      AllowUsers = [ "synalice" ];
+      AllowUsers = [
+        "synalice"
+        "nikableh"
+      ];
     };
-  };
-
-  services.syncthing = {
-    enable = true;
-    openDefaultPorts = true;
-    user = "synalice";
-    dataDir = "/home/synalice";
   };
 
   services.flatpak.enable = true;

@@ -1,11 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, lib, inputs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
-    ./dconf.nix
     ./software.nix
-    ./scripts.nix
     ./services.nix
     ./printers.nix
   ];
@@ -22,18 +20,11 @@
     gc = {
       automatic = true;
       dates = "daily";
-      options = "--detele-older-than 10d";
-    };
-  };
-
-  environment = {
-    shellAliases = {
-      merge = "sublime_merge";
+      options = "--delete-older-than 10d";
     };
 
-    sessionVariables = {
-      NIXOS_OZONE_WL = "1";
-    };
+    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
   };
 
   xdg.portal.enable = true;

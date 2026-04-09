@@ -6,12 +6,12 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nur = {
-      url = "github:nix-community/NUR";
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -22,6 +22,7 @@
       nixpkgs-unstable,
       nixos-hardware,
       home-manager,
+      nix-index-database,
       ...
     }@inputs:
     {
@@ -40,8 +41,10 @@
             ];
           }
           ./system
+          ./home
           nixos-hardware.nixosModules.xiaomi-redmibook-16-pro-2024
           home-manager.nixosModules.home-manager
+          nix-index-database.nixosModules.nix-index
         ];
       };
     };
