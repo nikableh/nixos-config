@@ -1,8 +1,7 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
-    <nixos-hardware/xiaomi/redmibook/16-pro-2024>
     ./hardware-configuration.nix
     ./dconf.nix
     ./software.nix
@@ -63,16 +62,6 @@
 
   nixpkgs.config = {
     allowUnfree = true;
-    packageOverrides = pkgs: {
-      # nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
-      # nix-channel --update
-      unstable = import <nixos-unstable> {
-        config = config.nixpkgs.config;
-      };
-      nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/main.tar.gz") {
-        inherit pkgs;
-      };
-    };
   };
 
   environment.sessionVariables = {
