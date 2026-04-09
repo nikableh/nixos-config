@@ -8,7 +8,7 @@
     ./software.nix
     ./scripts.nix
     ./services.nix
-    ./printers
+    ./printers.nix
   ];
 
   nix.settings.experimental-features = [
