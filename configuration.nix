@@ -10,14 +10,31 @@
     ./printers.nix
   ];
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix = {
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
 
-  environment.shellAliases = {
-    cfg-rebuild = "sudo nixos-rebuild switch";
-    merge = "sublime_merge";
+    gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--detele-older-than 10d";
+    };
+  };
+
+  environment = {
+    shellAliases = {
+      cfg-rebuild = "sudo nixos-rebuild switch";
+      merge = "sublime_merge";
+    };
+
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+    };
   };
 
   xdg.portal.enable = true;
@@ -30,13 +47,6 @@
   system.autoUpgrade = {
     enable = true;
     dates = "weekly";
-  };
-
-  nix.settings.auto-optimise-store = true;
-  nix.gc = {
-    automatic = true;
-    dates = "daily";
-    options = "--detele-older-than 10d";
   };
 
   networking.hostName = "semk";
@@ -62,10 +72,6 @@
 
   nixpkgs.config = {
     allowUnfree = true;
-  };
-
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
   };
 
   virtualisation.libvirtd.enable = true;

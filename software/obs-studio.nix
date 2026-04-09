@@ -1,8 +1,6 @@
 { pkgs, config, ... }:
 {
-  boot.extraModulePackages = with config.boot.kernelPackages; [
-    v4l2loopback
-  ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
 
   boot.kernelModules = [ "v4l2loopback" ];
 
@@ -12,7 +10,5 @@
 
   security.polkit.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    obs-studio
-  ];
+  environment.systemPackages = with pkgs; [ obs-studio ];
 }
