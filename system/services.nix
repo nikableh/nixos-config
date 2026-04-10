@@ -36,7 +36,6 @@
   services.xserver.xkb = {
     layout = "us,ru";
     variant = "";
-    options = "caps:escape";
   };
 
   services.pulseaudio.enable = false;

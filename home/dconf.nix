@@ -17,6 +17,10 @@
       name = "Toggle CopyQ";
     };
 
+    "org/gnome/desktop/input-sources" = {
+      xkb-options = [ "caps:escape" ];
+    };
+
     "org/gnome/desktop/peripherals/touchpad" = {
       disable-while-typing = true;
     };
