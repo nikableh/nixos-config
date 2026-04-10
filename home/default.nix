@@ -11,8 +11,17 @@
     ];
   };
 
+  users.users.synalice = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+  };
+
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
+
+  home-manager.users.synalice = {
+    imports = [ ./synalice.nix ];
+  };
 
   home-manager.users.nikableh = {
     imports = [

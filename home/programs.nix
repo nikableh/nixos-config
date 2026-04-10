@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.bash.enable = true;
   programs.neovim.enable = true;
@@ -7,7 +7,7 @@
   programs.git = {
     enable = true;
     lfs.enable = true;
-    extraConfig = {
+    settings = {
       init.defaultBranch = "main";
       gpg.format = "openpgp";
       commit.gpgsign = true;
@@ -22,6 +22,7 @@
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
+    pinentryPackage = pkgs.pinentry-gnome3;
   };
 
   services.copyq.enable = true;
