@@ -8,6 +8,7 @@
         hostname = "github.com";
         user = "git";
         identityFile = "~/.ssh/nikableh";
+        extraOptions.AddKeysToAgent = "yes";
       };
     };
   };
