@@ -28,7 +28,7 @@
       ./packages.nix
       ./programs.nix
       ./environment.nix
-      ./dconf.nix
+      ./gnome.nix
       ./scripts.nix
       ./ssh.nix
     ];

@@ -22,15 +22,8 @@
 
   services.xserver.excludePackages = [ pkgs.xterm ];
   environment.gnome.excludePackages = with pkgs; [
-    gnome-tour
-    epiphany
-    gnome-connections
-    yelp
-    gnome-maps
-    gnome-music
-    decibels
-    totem
-    geary
+    gnome-tour # I don't need a tutorial
+    epiphany # I use Google Chrome
   ];
 
   services.xserver.xkb = {

@@ -1,5 +1,15 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  programs.gnome-shell = {
+    enable = true;
+
+    extensions = with pkgs.gnomeExtensions; [
+      { package = vitals; }
+      { package = blur-my-shell; }
+      { package = middle-click-to-close-in-overview; }
+    ];
+  };
+
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       show-battery-percentage = true;
