@@ -1,41 +1,47 @@
 { ... }:
 {
-  users.users.nikableh = {
-    isNormalUser = true;
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "kvm"
-      "render"
-      "adbusers"
-    ];
+  users.users = {
+    nikableh = {
+      isNormalUser = true;
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "kvm"
+        "render"
+        "adbusers"
+      ];
+    };
+
+    synalice = {
+      isNormalUser = true;
+      extraGroups = [ "wheel" ];
+    };
   };
 
-  users.users.synalice = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-  };
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
 
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
+    users = {
+      synalice = {
+        imports = [ ./synalice.nix ];
+      };
 
-  home-manager.users.synalice = {
-    imports = [ ./synalice.nix ];
-  };
+      nikableh = {
+        imports = [
+          ./packages.nix
+          ./programs.nix
+          ./environment.nix
+          ./gnome.nix
+          ./ssh.nix
 
-  home-manager.users.nikableh = {
-    imports = [
-      ./packages.nix
-      ./programs.nix
-      ./environment.nix
-      ./gnome.nix
-      ./ssh.nix
+          ./scripts
+        ];
 
-      ./scripts
-    ];
+        systemd.user.startServices = "sd-switch";
 
-    systemd.user.startServices = "sd-switch";
-
-    home.stateVersion = "25.11";
+        home.stateVersion = "25.11";
+      };
+    };
   };
 }

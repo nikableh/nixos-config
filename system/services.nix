@@ -1,8 +1,50 @@
 { pkgs, ... }:
 {
-  services.logind.settings.Login.HandleLidSwitch = "lock";
+  services = {
+    logind.settings.Login.HandleLidSwitch = "lock";
+    acpid.enable = true;
+    flatpak.enable = true;
+    pulseaudio.enable = false;
 
-  services.acpid.enable = true;
+    xserver = {
+      enable = true;
+      excludePackages = [ pkgs.xterm ];
+      xkb = {
+        layout = "us,ru";
+        variant = "";
+      };
+    };
+
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+
+    pipewire = {
+      enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+      pulse.enable = true;
+    };
+
+    libinput = {
+      enable = true;
+      touchpad.disableWhileTyping = true;
+    };
+
+    openssh = {
+      enable = true;
+      settings = {
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
+        PermitRootLogin = "no";
+        AllowUsers = [
+          "synalice"
+          "nikableh"
+        ];
+      };
+    };
+  };
 
   systemd.services.enableXiaomiButton = {
     script = ''
@@ -15,35 +57,12 @@
     };
   };
 
-  services.xserver.enable = true;
-
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
-
-  services.xserver.excludePackages = [ pkgs.xterm ];
   environment.gnome.excludePackages = with pkgs; [
     gnome-tour # I don't need a tutorial
     epiphany # I use Google Chrome
   ];
 
-  services.xserver.xkb = {
-    layout = "us,ru";
-    variant = "";
-  };
-
-  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
-  services.libinput = {
-    enable = true;
-    touchpad.disableWhileTyping = true;
-  };
 
   users.users.synalice = {
     isNormalUser = true;
@@ -56,19 +75,4 @@
       "adbusers"
     ];
   };
-
-  services.openssh = {
-    enable = true;
-    settings = {
-      PasswordAuthentication = false;
-      KbdInteractiveAuthentication = false;
-      PermitRootLogin = "no";
-      AllowUsers = [
-        "synalice"
-        "nikableh"
-      ];
-    };
-  };
-
-  services.flatpak.enable = true;
 }

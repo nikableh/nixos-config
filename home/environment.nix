@@ -1,5 +1,7 @@
 { ... }:
 {
-  home.sessionVariables.NIXOS_OZONE_WL = "1";
-  home.shellAliases.merge = "sublime_merge";
+  home = {
+    sessionVariables.NIXOS_OZONE_WL = "1";
+    shellAliases.merge = "sublime_merge";
+  };
 }

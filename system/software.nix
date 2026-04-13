@@ -6,7 +6,9 @@
     ./software/keyd.nix
   ];
 
-  programs.adb.enable = true;
-  programs.nano.enable = false;
-  programs.steam.enable = true;
+  programs = {
+    adb.enable = true;
+    nano.enable = false;
+    steam.enable = true;
+  };
 }
