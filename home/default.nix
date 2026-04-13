@@ -29,8 +29,9 @@
       ./programs.nix
       ./environment.nix
       ./gnome.nix
-      ./scripts.nix
       ./ssh.nix
+
+      ./scripts
     ];
 
     systemd.user.startServices = "sd-switch";

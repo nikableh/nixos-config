@@ -8,6 +8,9 @@
     enable = true;
     lfs.enable = true;
     settings = {
+      user.name = "Nika Krasnova";
+      user.email = "nika@nikableh.moe";
+      user.signingKey = "90AB07612815096E";
       init.defaultBranch = "main";
       gpg.format = "openpgp";
       commit.gpgsign = true;
