@@ -38,5 +38,14 @@
     "org/gnome/settings-daemon/plugins/housekeeping" = {
       donation-reminder-enabled = false;
     };
+
+    "org/gnome/shell/extensions/vitals" = {
+      hot-sensors = [
+        "__temperature_avg__"
+        "_memory_usage_"
+        "_processor_usage_"
+      ];
+      icon-style = 1;
+    };
   };
 }
