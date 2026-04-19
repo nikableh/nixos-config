@@ -53,5 +53,6 @@
     tinymist
     ffmpeg
     zulu25
+    nodejs
   ];
 }
