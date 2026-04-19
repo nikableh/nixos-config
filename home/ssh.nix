@@ -4,10 +4,16 @@
     enable = true;
     enableDefaultConfig = false;
     matchBlocks = {
-      "github.com" = {
+      "github" = {
         hostname = "github.com";
         user = "git";
         identityFile = "~/.ssh/nikableh";
+        extraOptions.AddKeysToAgent = "yes";
+      };
+      "mytona" = {
+        hostname = "git.mytona.com";
+        user = "git";
+        identityFile = "~/.ssh/mytona";
         extraOptions.AddKeysToAgent = "yes";
       };
     };
