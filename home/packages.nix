@@ -5,7 +5,6 @@
     unstable.android-studio
     unstable.windsurf
     unstable.shotcut
-    unstable.claude-code
     unstable.slack
     unstable.discord
     unstable.google-chrome
