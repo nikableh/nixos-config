@@ -57,10 +57,18 @@
     };
   };
 
-  environment.gnome.excludePackages = with pkgs; [
-    gnome-tour # I don't need a tutorial
-    epiphany # I use Google Chrome
-  ];
+  environment = {
+    gnome.excludePackages = with pkgs; [
+      gnome-tour # I don't need a tutorial
+      epiphany # I use Google Chrome
+      gnome-console # I use Ptyxis
+    ];
+
+    defaultPackages = with pkgs; [
+      ptyxis # Better terminal for gnome
+      resources # Better system monitor
+    ];
+  };
 
   security.rtkit.enable = true;
 
