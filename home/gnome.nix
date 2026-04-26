@@ -7,6 +7,7 @@
       { package = vitals; }
       { package = blur-my-shell; }
       { package = middle-click-to-close-in-overview; }
+      { package = caffeine; }
     ];
   };
 
