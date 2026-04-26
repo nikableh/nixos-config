@@ -10,6 +10,7 @@
     unstable.google-chrome
     unstable.ayugram-desktop
     unstable.vscode
+    unstable.claude-code
 
     file
     pciutils
@@ -53,5 +54,6 @@
     ffmpeg
     zulu25
     nodejs
+    sox # required by Claude's /voice command
   ];
 }

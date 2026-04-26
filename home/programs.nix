@@ -6,43 +6,6 @@
     direnv.enable = true;
     gpg.enable = true;
 
-    claude-code = {
-      enable = true;
-      settings = {
-        includeCoAuthoredBy = false;
-        enabledPlugins = {
-          "rust-analyzer-lsp@claude-plugins-official" = true;
-          "caveman@caveman" = true;
-        };
-        statusLine = {
-          type = "command";
-          command = "bash \"/home/nikableh/.claude/plugins/marketplaces/caveman/hooks/caveman-statusline.sh\"";
-        };
-        extraKnownMarketplaces = {
-          caveman = {
-            source = {
-              source = "github";
-              repo = "JuliusBrussee/caveman";
-            };
-            autoUpdate = true;
-          };
-        };
-        hooks = {
-          Notification = [
-            {
-              matcher = "";
-              hooks = [
-                {
-                  type = "command";
-                  command = "nix-shell -p libnotify.out --run 'notify-send \"Claude\" \"Waiting for your input\"'";
-                }
-              ];
-            }
-          ];
-        };
-      };
-    };
-
     git = {
       enable = true;
       lfs.enable = true;
