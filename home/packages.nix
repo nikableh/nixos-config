@@ -10,7 +10,6 @@
     unstable.google-chrome
     unstable.telegram-desktop
     unstable.vscode
-    unstable.claude-code
 
     file
     pciutils
