@@ -8,7 +8,7 @@
     unstable.slack
     unstable.discord
     unstable.google-chrome
-    unstable.ayugram-desktop
+    unstable.telegram-desktop
     unstable.vscode
     unstable.claude-code
 
