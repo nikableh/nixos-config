@@ -55,5 +55,6 @@
     zulu25
     nodejs
     sox # required by Claude's /voice command
+    eyedropper
   ];
 }
