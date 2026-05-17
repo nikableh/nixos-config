@@ -3,7 +3,7 @@ pkgs.writeShellApplication {
   name = "cfg-open";
 
   runtimeInputs = with pkgs; [
-    vscode
+    unstable.vscode
   ];
 
   text = ''
