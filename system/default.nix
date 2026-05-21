@@ -8,9 +8,9 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./software.nix
     ./services.nix
     ./printers.nix
+    ./software
   ];
 
   nix = {

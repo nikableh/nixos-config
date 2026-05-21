@@ -1,9 +1,8 @@
 { ... }:
 {
   imports = [
-    ./software/obs-studio.nix
-    ./software/docker.nix
-    ./software/keyd.nix
+    ./obs-studio.nix
+    ./docker.nix
   ];
 
   programs = {
