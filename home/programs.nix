@@ -36,6 +36,8 @@
         gpg.format = "openpgp";
         commit.gpgsign = true;
         tag.gpgSign = true;
+        rebase.gpgSign = true;
+        am.gpgSign = true;
         core.editor = "code --wait";
         diff.tool = "meld";
         sendemail = {
