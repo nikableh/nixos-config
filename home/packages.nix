@@ -46,6 +46,7 @@
     liberation_ttf
     vista-fonts
     meld
+    pass
     icon-library
     typst
     typstyle

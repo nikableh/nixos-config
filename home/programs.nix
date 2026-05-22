@@ -1,13 +1,32 @@
 { pkgs, ... }:
 {
+  accounts.email.accounts.purelymail = {
+    primary = true;
+    address = "nika@nikableh.moe";
+    userName = "nika@nikableh.moe";
+    realName = "Nika Krasnova";
+    passwordCommand = "${pkgs.pass}/bin/pass show email/purelymail";
+    smtp = {
+      host = "smtp.purelymail.com";
+      port = 465;
+      tls = {
+        enable = true;
+        useStartTls = false;
+      };
+    };
+    msmtp.enable = true;
+  };
+
   programs = {
     bash.enable = true;
     neovim.enable = true;
     direnv.enable = true;
     gpg.enable = true;
+    msmtp.enable = true;
 
     git = {
       enable = true;
+      package = pkgs.gitFull;
       lfs.enable = true;
       settings = {
         user.name = "Nika Krasnova";
@@ -19,6 +38,12 @@
         tag.gpgSign = true;
         core.editor = "nvim";
         diff.tool = "meld";
+        sendemail = {
+          smtpServer = "${pkgs.msmtp}/bin/msmtp";
+          from = "Nika Krasnova <nika@nikableh.moe>";
+          confirm = "auto";
+          annotate = true;
+        };
       };
     };
   };
