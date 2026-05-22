@@ -36,7 +36,7 @@
         gpg.format = "openpgp";
         commit.gpgsign = true;
         tag.gpgSign = true;
-        core.editor = "nvim";
+        core.editor = "code --wait";
         diff.tool = "meld";
         sendemail = {
           smtpServer = "${pkgs.msmtp}/bin/msmtp";
