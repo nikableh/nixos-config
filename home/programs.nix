@@ -5,7 +5,7 @@
     address = "nika@nikableh.moe";
     userName = "nika@nikableh.moe";
     realName = "Nika Krasnova";
-    passwordCommand = "${pkgs.pass}/bin/pass show email/purelymail";
+    passwordCommand = "${pkgs.coreutils}/bin/cat /etc/nixos/secrets/smtp-purelymail";
     smtp = {
       host = "smtp.purelymail.com";
       port = 465;

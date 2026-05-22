@@ -46,7 +46,7 @@
     liberation_ttf
     vista-fonts
     meld
-    pass
+    git-crypt
     icon-library
     typst
     typstyle
