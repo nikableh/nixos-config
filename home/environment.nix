@@ -5,6 +5,7 @@
     shellAliases = {
       merge = "sublime_merge";
       clob = "claude";
+      cloba = "claude agents";
     };
   };
 }
