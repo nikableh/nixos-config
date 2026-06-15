@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   programs.gnome-shell = {
     enable = true;
@@ -30,6 +30,19 @@
 
     "org/gnome/desktop/input-sources" = {
       xkb-options = [ "caps:escape" ];
+      sources = [
+        (lib.hm.gvariant.mkTuple [
+          "xkb"
+          "us+colemak"
+        ])
+        (lib.hm.gvariant.mkTuple [
+          "xkb"
+          "ru+rulemak"
+        ])
+      ];
+
+      # Required for ru+rulemak to work at all
+      show-all-sources = true;
     };
 
     "org/gnome/desktop/peripherals/touchpad" = {
