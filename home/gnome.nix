@@ -35,10 +35,6 @@
           "xkb"
           "us+colemak"
         ])
-        (lib.hm.gvariant.mkTuple [
-          "xkb"
-          "ru+rulemak"
-        ])
       ];
 
       # Required for ru+rulemak to work at all
