@@ -19,10 +19,15 @@
 
   programs = {
     bash.enable = true;
-    neovim.enable = true;
     direnv.enable = true;
     gpg.enable = true;
     msmtp.enable = true;
+
+    neovim = {
+      enable = true;
+      withRuby = false; # because `home.stateVersion` is less than "26.05".
+      withPython3 = false; # because `home.stateVersion` is less than "26.05".
+    };
 
     git = {
       enable = true;

@@ -6,7 +6,6 @@
   ];
 
   programs = {
-    adb.enable = true;
     nano.enable = false;
     steam.enable = true;
   };

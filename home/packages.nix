@@ -29,7 +29,7 @@
     wev
     gimp
     openvpn
-    nixfmt-rfc-style
+    nixfmt
     nil
     sensible-utils
     libreoffice
