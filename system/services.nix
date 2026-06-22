@@ -38,10 +38,7 @@
         PasswordAuthentication = false;
         KbdInteractiveAuthentication = false;
         PermitRootLogin = "no";
-        AllowUsers = [
-          "synalice"
-          "nikableh"
-        ];
+        AllowUsers = [ "nikableh" ];
       };
     };
   };
@@ -60,16 +57,4 @@
   };
 
   security.rtkit.enable = true;
-
-  users.users.synalice = {
-    isNormalUser = true;
-    description = "synalice";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "kvm"
-      "render"
-      "adbusers"
-    ];
-  };
 }

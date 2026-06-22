@@ -11,11 +11,6 @@
         "adbusers"
       ];
     };
-
-    synalice = {
-      isNormalUser = true;
-      extraGroups = [ "wheel" ];
-    };
   };
 
   home-manager = {
@@ -23,10 +18,6 @@
     useUserPackages = true;
 
     users = {
-      synalice = {
-        imports = [ ./synalice.nix ];
-      };
-
       nikableh = {
         imports = [
           ./packages.nix
