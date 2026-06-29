@@ -45,8 +45,12 @@
         am.gpgSign = true;
         core.editor = "code --wait";
         diff.tool = "meld";
+        b4.prep-cover-template = "/etc/nixos/data/b4-cover.template";
         sendemail = {
-          smtpServer = "${pkgs.msmtp}/bin/msmtp";
+          smtpServer = "smtp.purelymail.com";
+          smtpServerPort = 465;
+          smtpEncryption = "ssl";
+          smtpUser = "nika@nikableh.moe";
           from = "Nika Krasnova <nika@nikableh.moe>";
           confirm = "auto";
           annotate = true;
