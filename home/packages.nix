@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
     unstable.sublime-merge-dev
     unstable.android-studio
-    unstable.windsurf
     unstable.shotcut
     unstable.slack
     unstable.discord
