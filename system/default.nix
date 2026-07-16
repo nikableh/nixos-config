@@ -7,7 +7,6 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
     ./services.nix
     ./printers.nix
     ./software
@@ -49,7 +48,6 @@
   };
 
   networking = {
-    hostName = "semk";
     networkmanager.enable = true;
     firewall = {
       enable = true;
@@ -78,6 +76,4 @@
   };
 
   virtualisation.libvirtd.enable = true;
-
-  system.stateVersion = "25.05";
 }

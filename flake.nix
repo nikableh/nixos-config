@@ -25,26 +25,43 @@
       nix-index-database,
       ...
     }@inputs:
+    let
+      mkHost =
+        hostModules:
+        nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            {
+              nixpkgs.overlays = [
+                (final: prev: {
+                  unstable = import nixpkgs-unstable {
+                    inherit (final) config;
+                    inherit (final.stdenv.hostPlatform) system;
+                  };
+                })
+              ];
+            }
+            ./system
+            ./home
+            home-manager.nixosModules.home-manager
+            nix-index-database.nixosModules.nix-index
+          ]
+          ++ hostModules;
+        };
+    in
     {
-      nixosConfigurations.semk = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          {
-            nixpkgs.overlays = [
-              (final: prev: {
-                unstable = import nixpkgs-unstable {
-                  inherit (final) config;
-                  inherit (final.stdenv.hostPlatform) system;
-                };
-              })
-            ];
-          }
-          ./system
-          ./home
+      nixosConfigurations = {
+        semk = mkHost [
+          ./hosts/semk
           nixos-hardware.nixosModules.xiaomi-redmibook-16-pro-2024
-          home-manager.nixosModules.home-manager
-          nix-index-database.nixosModules.nix-index
+        ];
+
+        aleph = mkHost [
+          ./hosts/aleph
+          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-pc-laptop
+          nixos-hardware.nixosModules.common-pc-laptop-ssd
         ];
       };
     };
