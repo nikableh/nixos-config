@@ -1,12 +1,11 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-26.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -19,7 +18,6 @@
   outputs =
     {
       nixpkgs,
-      nixpkgs-unstable,
       nixos-hardware,
       home-manager,
       nix-index-database,
@@ -32,16 +30,6 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-            {
-              nixpkgs.overlays = [
-                (final: prev: {
-                  unstable = import nixpkgs-unstable {
-                    inherit (final) config;
-                    inherit (final.stdenv.hostPlatform) system;
-                  };
-                })
-              ];
-            }
             ./system
             ./home
             home-manager.nixosModules.home-manager

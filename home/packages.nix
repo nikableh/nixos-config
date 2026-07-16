@@ -1,16 +1,15 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    unstable.sublime-merge-dev
-    unstable.android-studio
-    unstable.shotcut
-    unstable.slack
-    unstable.discord
-    unstable.google-chrome
-    unstable.telegram-desktop
-    unstable.vscode
-    unstable.geary
-
+    sublime-merge-dev
+    android-studio
+    shotcut
+    slack
+    discord
+    google-chrome
+    telegram-desktop
+    vscode
+    geary
     file
     pciutils
     fastfetch
