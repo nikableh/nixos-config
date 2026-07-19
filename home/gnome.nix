@@ -37,7 +37,7 @@
         ])
         (lib.hm.gvariant.mkTuple [
           "xkb"
-          "ru"
+          "ru+rulemak"
         ])
       ];
 
