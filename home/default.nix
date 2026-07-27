@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, ... }:
 {
   users.users = {
     nikableh = {

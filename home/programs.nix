@@ -33,6 +33,7 @@
       enable = true;
       package = pkgs.gitFull;
       lfs.enable = true;
+      ignores = [ ".claude/worktrees/" ];
       settings = {
         user.name = "Nika Krasnova";
         user.email = "nika@nikableh.moe";
