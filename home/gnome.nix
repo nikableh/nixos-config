@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, inputs, ... }:
 {
   programs.gnome-shell = {
     enable = true;
@@ -8,6 +8,7 @@
       { package = blur-my-shell; }
       { package = middle-click-to-close-in-overview; }
       { package = caffeine; }
+      { package = inputs.albumwm.packages.${pkgs.stdenv.hostPlatform.system}.default; }
     ];
   };
 

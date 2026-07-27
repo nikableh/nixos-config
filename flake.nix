@@ -13,6 +13,11 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    albumwm = {
+      url = "github:poli0iq/albumwm";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
