@@ -12,6 +12,8 @@
     ];
   };
 
+  xdg.configFile."xkb".source = ./xkb;
+
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       show-battery-percentage = true;
@@ -38,11 +40,11 @@
         ])
         (lib.hm.gvariant.mkTuple [
           "xkb"
-          "ru+rulemak"
+          "rulemak-caps-escape"
         ])
       ];
 
-      # Required for ru+rulemak to work at all
+      # Required for non-standard layouts to work
       show-all-sources = true;
     };
 

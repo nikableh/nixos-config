@@ -1,0 +1,7 @@
+// Rulemak with Caps as Esc. Stock rulemak hardcodes Caps as Backspace.
+default partial alphanumeric_keys
+xkb_symbols "esc" {
+    include "ru(rulemak)"
+    include "capslock(escape)"
+    name[Group1] = "Russian (Rulemak, Caps as Esc)";
+};
