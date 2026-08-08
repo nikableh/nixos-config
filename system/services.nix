@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   services = {
     logind.settings.Login.HandleLidSwitch = "lock";
@@ -10,8 +10,17 @@
       enable = true;
       excludePackages = [ pkgs.xterm ];
       xkb = {
-        layout = "us,ru";
-        variant = "";
+        layout = "us,rulemak-caps-escape";
+        variant = "colemak,";
+        options = "terminate:ctrl_alt_bksp,caps:escape";
+
+        # System-wide so the GDM greeter gets it too. The greeter runs as the
+        # `gdm` user and can't read my home directory.
+        extraLayouts.rulemak-caps-escape = {
+          description = "Russian (Rulemak, Caps as Esc)";
+          languages = [ "rus" ];
+          symbolsFile = ../xkb/symbols/rulemak-caps-escape;
+        };
       };
     };
 
@@ -55,6 +64,28 @@
       resources # Better system monitor
     ];
   };
+
+  # GDM's greeter is a separate gnome-shell running as the `gdm` user with its
+  # own dconf, so it doesn't see the input sources from home/gnome.nix. Without
+  # this, the login screen after a reboot is plain QWERTY.
+  programs.dconf.profiles.gdm.databases = [
+    {
+      settings."org/gnome/desktop/input-sources" = {
+        sources = [
+          (lib.gvariant.mkTuple [
+            "xkb"
+            "us+colemak"
+          ])
+          (lib.gvariant.mkTuple [
+            "xkb"
+            "rulemak-caps-escape"
+          ])
+        ];
+        xkb-options = [ "caps:escape" ];
+        show-all-sources = true;
+      };
+    }
+  ];
 
   security.rtkit.enable = true;
 }

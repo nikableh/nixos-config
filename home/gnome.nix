@@ -1,4 +1,9 @@
-{ pkgs, lib, inputs, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 {
   programs.gnome-shell = {
     enable = true;
@@ -11,8 +16,6 @@
       { package = inputs.albumwm.packages.${pkgs.stdenv.hostPlatform.system}.default; }
     ];
   };
-
-  xdg.configFile."xkb".source = ./xkb;
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
