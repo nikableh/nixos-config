@@ -27,6 +27,7 @@
           ./gnome.nix
           ./ssh.nix
 
+          ./git-hooks
           ./scripts
         ];
 
