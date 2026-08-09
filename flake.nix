@@ -29,6 +29,8 @@
       ...
     }@inputs:
     let
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+
       mkHost =
         hostModules:
         nixpkgs.lib.nixosSystem {
@@ -44,6 +46,32 @@
         };
     in
     {
+      formatter.x86_64-linux = pkgs.nixfmt-tree;
+
+      # Covers what the hook misses: rebases, cherry-picks, and machines
+      # home-manager has not set core.hooksPath on yet.
+      checks.x86_64-linux.treefmt = pkgs.runCommandLocal "check-treefmt" { } ''
+        cp -r ${./.} actual
+        chmod -R u+w actual
+        cp -r actual expected
+
+        ${pkgs.nixfmt-tree}/bin/treefmt \
+          --tree-root "$PWD/expected" \
+          --walk filesystem \
+          --no-cache \
+          --on-unmatched debug
+
+        # Not `--fail-on-change`: it compares size and whole-second mtime, so
+        # it misses reformats that preserve the byte count.
+        if ! diff --recursive --unified actual expected; then
+          echo >&2
+          echo "the tree is not treefmt-clean; run 'nix fmt' at the repo root" >&2
+          exit 1
+        fi
+
+        touch "$out"
+      '';
+
       nixosConfigurations = {
         semk = mkHost [
           ./hosts/semk
