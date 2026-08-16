@@ -55,6 +55,10 @@
       disable-while-typing = true;
     };
 
+    "org/gnome/desktop/screensaver" = {
+      restart-enabled = true;
+    };
+
     "org/gnome/settings-daemon/plugins/housekeeping" = {
       donation-reminder-enabled = false;
     };
