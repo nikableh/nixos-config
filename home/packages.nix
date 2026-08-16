@@ -55,5 +55,8 @@
     nodejs
     sox # required by Claude's /voice command
     eyedropper
+    maple-mono.NL-TTF
+    spotify
+    gh
   ];
 }
