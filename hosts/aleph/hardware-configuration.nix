@@ -53,8 +53,19 @@
   hardware.cpu.intel.npu.enable = true;
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-  # Don't allow the Wi-Fi adapter (8086:272b) to enter D3cold.
-  services.udev.extraRules = ''
-    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x8086", ATTR{device}=="0x272b", ATTR{d3cold_allowed}="0"
-  '';
+  services.udev = {
+    # Don't allow the Wi-Fi adapter (8086:272b) to enter D3cold.
+    extraRules = ''
+      ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x8086", ATTR{device}=="0x272b", ATTR{d3cold_allowed}="0"
+    '';
+
+    # The EC sends the PS/2 "Wake" scancode (e0 63, MSC_SCAN e3) right after
+    # every Super press. Mutter only opens the overview when Super is the
+    # only key between its press and release, so that phantom key kills the
+    # bare Super binding. Drop it.
+    extraHwdb = ''
+      evdev:atkbd:dmi:bvn*:bvr*:bd*:svnLENOVO*:pn83JK*:pvr*
+       KEYBOARD_KEY_e3=reserved
+    '';
+  };
 }
