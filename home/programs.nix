@@ -22,6 +22,7 @@
     direnv.enable = true;
     gpg.enable = true;
     msmtp.enable = true;
+    codex.enable = true;
 
     ghostty = {
       enable = true;
