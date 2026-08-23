@@ -34,7 +34,6 @@
   xdg.portal.enable = true;
   hardware.graphics.enable = true;
   programs.nix-ld.enable = true;
-  environment.systemPackages = [ pkgs.bubblewrap ];
 
   boot = {
     loader = {

@@ -29,7 +29,6 @@
   outputs =
     {
       nixpkgs,
-      codex-desktop-linux,
       nixos-hardware,
       home-manager,
       nix-index-database,
@@ -44,26 +43,6 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-            codex-desktop-linux.nixosModules.default
-            {
-              programs.codexDesktopLinux = {
-                enable = true;
-                linuxFeatures = [
-                  "computer-use-linux"
-                  "appshots"
-                  "global-dictation"
-                  "read-aloud"
-                  "read-aloud-mcp"
-                  "directory-only-working-tree-watch"
-                  "linux-performance-workarounds"
-                  "mcp-helper-reaper"
-                  "node-repl-reaper"
-                  "automation-extensions"
-                  "persistent-status-panel"
-                  "tray-usage"
-                ];
-              };
-            }
             ./system
             ./home
             home-manager.nixosModules.home-manager
