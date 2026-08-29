@@ -47,6 +47,7 @@
       ignores = [
         ".claude/worktrees/"
         ".claude/settings.local.json"
+        "**/.claude/settings.local.json"
       ];
       settings = {
         user.name = "Nika Krasnova";
