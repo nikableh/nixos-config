@@ -27,12 +27,8 @@
     ghostty = {
       enable = true;
       settings = {
-        theme = "Adwaita Dark";
-        background = "#1c1c1f";
         cursor-style = "block";
         shell-integration-features = "no-cursor";
-        font-family = "Adwaita Mono";
-        font-size = 11;
         maximize = true;
         window-padding-balance = true;
       };
