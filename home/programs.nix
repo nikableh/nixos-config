@@ -75,7 +75,10 @@
   };
 
   services = {
-    copyq.enable = true;
+    copyq = {
+      enable = true;
+      forceXWayland = false;
+    };
 
     gpg-agent = {
       enable = true;
