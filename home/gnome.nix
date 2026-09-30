@@ -26,8 +26,12 @@
       ];
     };
 
+    "org/gnome/shell/keybindings" = {
+      toggle-message-tray = lib.hm.gvariant.mkEmptyArray lib.hm.gvariant.type.string;
+    };
+
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-      binding = "<Alt>v";
+      binding = "<Super>v";
       command = "copyq toggle";
       name = "Toggle CopyQ";
     };
