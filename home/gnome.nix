@@ -3,6 +3,18 @@
   lib,
   ...
 }:
+let
+  copyqExtensionId = "copyq-clipboard@hluk.github.com";
+  # Backport GNOME 50 support until CopyQ ships a release containing this fix:
+  # https://github.com/hluk/CopyQ/pull/3699
+  copyqExtension = pkgs.runCommand "copyq-gnome50-extension" { } ''
+    cp -rL ${pkgs.copyq}/share/gnome-shell/extensions/${copyqExtensionId} "$out"
+    chmod u+w "$out" "$out/metadata.json"
+    ${lib.getExe pkgs.jq} '."shell-version" |= (. + ["50"] | unique)' \
+      "$out/metadata.json" > "$out/metadata.json.new"
+    mv "$out/metadata.json.new" "$out/metadata.json"
+  '';
+in
 {
   programs.gnome-shell = {
     enable = true;
@@ -12,8 +24,14 @@
       { package = blur-my-shell; }
       { package = middle-click-to-close-in-overview; }
       { package = caffeine; }
+      {
+        id = copyqExtensionId;
+        package = pkgs.copyq;
+      }
     ];
   };
+
+  home.file.".local/share/gnome-shell/extensions/${copyqExtensionId}".source = copyqExtension;
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
