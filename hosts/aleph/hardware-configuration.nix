@@ -66,6 +66,13 @@
     extraHwdb = ''
       evdev:atkbd:dmi:bvn*:bvr*:bd*:svnLENOVO*:pn83JK*:pvr*
        KEYBOARD_KEY_e3=reserved
+
+      # ideapad-laptop reports KEY_SELECTIVE_SCREENSHOT for the screenshot
+      # key without Fn. Map it to KEY_SYSRQ, which GNOME handles as Print.
+      # TODO: Upstream a fix for KEY_SELECTIVE_SCREENSHOT handling and remove
+      # this local workaround once the key works in GNOME without remapping.
+      evdev:name:Ideapad extra buttons:dmi:bvn*:bvr*:bd*:svnLENOVO*:pn83JK:*
+       KEYBOARD_KEY_12d=sysrq
     '';
   };
 }
