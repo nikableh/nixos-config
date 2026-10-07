@@ -18,11 +18,14 @@
   };
 
   programs = {
-    bash.enable = true;
+    bash.enable = false;
+    fish.enable = true;
+    fzf.enable = true;
     direnv.enable = true;
     gpg.enable = true;
     msmtp.enable = true;
     codex.enable = true;
+    htop.enable = true;
 
     ghostty = {
       enable = true;

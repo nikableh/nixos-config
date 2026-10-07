@@ -24,5 +24,6 @@
   programs = {
     nano.enable = false;
     steam.enable = true;
+    fish.enable = true;
   };
 }

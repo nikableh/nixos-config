@@ -10,6 +10,7 @@
         "render"
         "adbusers"
       ];
+      shell = pkgs.fish;
     };
   };
 

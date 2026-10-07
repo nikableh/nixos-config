@@ -8,6 +8,7 @@ in
     acpid.enable = true;
     flatpak.enable = true;
     pulseaudio.enable = false;
+    fwupd.enable = true;
 
     xserver = {
       enable = true;
