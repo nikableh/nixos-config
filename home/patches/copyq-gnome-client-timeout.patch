@@ -1,0 +1,23 @@
+--- a/extension.js
++++ b/extension.js
+@@ -227,5 +227,6 @@
+-        if (!this._clients || this._clients.size === 0)
+-            return;
+-        debug(`Notifying clients for clipboardType=${clipboardType}, clients=${this._clients.size}`);
+-
+-        for (const [sender, clipboardTypes] of this._clients.entries()) {
++        const clients = this._clients;
++        if (!clients || clients.size === 0)
++            return;
++        debug(`Notifying clients for clipboardType=${clipboardType}, clients=${clients.size}`);
++
++        for (const [sender, clipboardTypes] of clients.entries()) {
+@@ -249 +250,7 @@
+-                        this._clients.delete(sender);
++                        // A busy client can reply late without disconnecting.
++                        const timedOut = error.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.TIMED_OUT)
++                            || error.matches(Gio.DBusError, Gio.DBusError.NO_REPLY)
++                            || error.matches(Gio.DBusError, Gio.DBusError.TIMEOUT)
++                            || error.matches(Gio.DBusError, Gio.DBusError.TIMED_OUT);
++                        if (!timedOut)
++                            clients.delete(sender);

@@ -16,13 +16,24 @@ let
   copyqExtensionId = "copyq-clipboard@hluk.github.com";
   # Backport GNOME 50 support until CopyQ ships a release containing this fix:
   # https://github.com/hluk/CopyQ/pull/3699
-  copyqExtension = pkgs.runCommand "copyq-gnome50-extension" { } ''
-    cp -rL ${pkgs.copyq}/share/gnome-shell/extensions/${copyqExtensionId} "$out"
-    chmod u+w "$out" "$out/metadata.json"
-    ${lib.getExe pkgs.jq} '."shell-version" |= (. + ["50"] | unique)' \
-      "$out/metadata.json" > "$out/metadata.json.new"
-    mv "$out/metadata.json.new" "$out/metadata.json"
-  '';
+  copyqExtension =
+    pkgs.runCommand "copyq-gnome50-extension"
+      {
+        nativeBuildInputs = [ pkgs.patch ];
+      }
+      ''
+        cp -rL ${pkgs.copyq}/share/gnome-shell/extensions/${copyqExtensionId} "$out"
+        chmod u+w "$out" "$out/metadata.json" "$out/extension.js"
+        # Keep live clients registered after a transient notification timeout.
+        # https://github.com/hluk/CopyQ/commit/73b9fe63a43a73d14ba4750bcb042d42b66a1583
+        if ! patch --dry-run --reverse -d "$out" -p1 \
+            < ${./patches/copyq-gnome-client-timeout.patch} >/dev/null 2>&1; then
+          patch -d "$out" -p1 < ${./patches/copyq-gnome-client-timeout.patch}
+        fi
+        ${lib.getExe pkgs.jq} '."shell-version" |= (. + ["50"] | unique)' \
+          "$out/metadata.json" > "$out/metadata.json.new"
+        mv "$out/metadata.json.new" "$out/metadata.json"
+      '';
 in
 {
   programs.gnome-shell = {
