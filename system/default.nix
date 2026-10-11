@@ -8,6 +8,7 @@
 {
   imports = [
     ./services.nix
+    ./networkmanager.nix
     ./printers.nix
     ./software
   ];
