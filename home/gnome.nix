@@ -54,6 +54,10 @@ in
   };
 
   dconf.settings = {
+    "org/gnome/shell" = {
+      always-show-log-out = true;
+    };
+
     "org/gnome/desktop/interface" = {
       toolkit-accessibility = true;
       show-battery-percentage = true;
