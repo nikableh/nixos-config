@@ -1,9 +1,18 @@
 {
+  inputs,
   pkgs,
   lib,
   ...
 }:
 let
+  codexExtensionId = "codex-window-control@openai.com";
+  # Keep the bridge in sync with the pinned Codex computer-use backend.
+  codexExtensionSource = "${inputs.codex-desktop-linux}/computer-use-linux/gnome-shell-extension";
+  codexExtension = pkgs.runCommand "codex-window-control-extension" { } ''
+    mkdir -p "$out/share/gnome-shell/extensions"
+    cp -r ${codexExtensionSource} "$out/share/gnome-shell/extensions/${codexExtensionId}"
+  '';
+
   copyqExtensionId = "copyq-clipboard@hluk.github.com";
   # Backport GNOME 50 support until CopyQ ships a release containing this fix:
   # https://github.com/hluk/CopyQ/pull/3699
@@ -25,6 +34,10 @@ in
       { package = middle-click-to-close-in-overview; }
       { package = caffeine; }
       {
+        id = codexExtensionId;
+        package = codexExtension;
+      }
+      {
         id = copyqExtensionId;
         package = pkgs.copyq;
       }
@@ -33,8 +46,16 @@ in
 
   home.file.".local/share/gnome-shell/extensions/${copyqExtensionId}".source = copyqExtension;
 
+  # Replace the manually installed bridge so it cannot shadow future updates.
+  home.file.".local/share/gnome-shell/extensions/${codexExtensionId}" = {
+    source = codexExtensionSource;
+    recursive = true;
+    force = true;
+  };
+
   dconf.settings = {
     "org/gnome/desktop/interface" = {
+      toolkit-accessibility = true;
       show-battery-percentage = true;
     };
 
