@@ -4,6 +4,12 @@
     enable = true;
     enableDefaultConfig = false;
     settings = {
+      "yodh" = {
+        hostname = "192.168.1.42";
+        user = "user";
+        identityFile = "~/.ssh/nikableh";
+        IdentitiesOnly = "yes";
+      };
       "github" = {
         hostname = "github.com";
         user = "git";
