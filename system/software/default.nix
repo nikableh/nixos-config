@@ -3,6 +3,7 @@
   imports = [
     ./obs-studio.nix
     ./docker.nix
+    ./virtualbox.nix
   ];
 
   nixpkgs.overlays = [
