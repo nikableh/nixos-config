@@ -6,7 +6,13 @@
     package = lib.makeOverridable (
       args:
       let
-        virtualbox = pkgs.virtualbox.override args;
+        virtualbox = (pkgs.virtualbox.override args).overrideAttrs (old: {
+          postPatch = (old.postPatch or "") + ''
+            substituteInPlace src/libs/dxvk-*/src/vulkan/vulkan_loader.cpp \
+              --replace-fail '"libvulkan.so"' '"${lib.getLib pkgs.vulkan-loader}/lib/libvulkan.so.1"' \
+              --replace-fail '"libvulkan.so.1"' '"${lib.getLib pkgs.vulkan-loader}/lib/libvulkan.so.1"'
+          '';
+        });
       in
       pkgs.symlinkJoin {
         name = "virtualbox-${virtualbox.version}";
