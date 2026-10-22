@@ -1,6 +1,11 @@
 { pkgs, config, ... }:
 {
-  boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
+  boot.extraModulePackages = [
+    (config.boot.kernelPackages.v4l2loopback.overrideAttrs (old: {
+      # NixOS runs depmod after combining all kernel modules.
+      makeFlags = (old.makeFlags or [ ]) ++ [ "DEPMOD=true" ];
+    }))
+  ];
 
   boot.kernelModules = [ "v4l2loopback" ];
 

@@ -1,5 +1,23 @@
 { lib, pkgs, ... }:
 {
+  nixpkgs.overlays = [
+    (_: prev: {
+      linuxPackages_latest = prev.linuxPackages_latest.extend (
+        kernelFinal: kernelPackages: {
+          virtualbox = kernelPackages.virtualbox.overrideAttrs (old: {
+            # Use NixOS's module signing rule during installation.
+            makeFlags =
+              (old.makeFlags or [ ])
+              ++ kernelFinal.kernelModuleMakeFlags
+              ++ [
+                "VBOX_ALLOW_MODULE_SIGNING=1"
+              ];
+          });
+        }
+      );
+    })
+  ];
+
   virtualisation.virtualbox.host = {
     enable = true;
     # Qt's GTK file chooser aborts without org.gtk.Settings.FileChooser.
